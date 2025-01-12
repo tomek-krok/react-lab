@@ -5,7 +5,9 @@ import {useState} from "react";
 
 function App() {
   // let title = 'Wall-E';
-  const [title, setTitile] = useState('Wall-E');
+  const [title, setTitile] = useState('');
+
+  const [year, setYear] = useState('');
 
   const [movies, setMovies] = useState([]);
 
@@ -49,7 +51,7 @@ function App() {
 
   function handleAddMovie(event)
   {
-    const newMovie = {title: title};
+    const newMovie = {title: title, year: year};
     setMovies([...movies, newMovie]);
   }
 
@@ -62,10 +64,22 @@ function App() {
       {/* <div> */}
         <h3>Titles</h3>
           <ul>
-            {movies.map((movie) => <li key={movie.title}>{movie.title}</li>)}
+            {movies.map((movie) => <li key={movie.title}>
+              {movie.title}({movie.year})
+            </li>)}
           </ul>
         
-        <input type="text" value={title} onChange={handleChange}/> 
+        <div>
+          <label>Title</label>
+          <input type="text" value={title} onChange={handleChange}/> 
+        </div>
+
+        <div>
+          <label>Year</label>
+          <input type="text" value={year} 
+            onChange={(event)=>setYear(event.target.value)}/> 
+        </div>
+    
         {/* <button type="button" onClick={handleClick}>Pokaz tytul filmy</button>  */}
         <button type="button" onClick={() => alert(title) }>Pokaz tytul filmy</button>
 
