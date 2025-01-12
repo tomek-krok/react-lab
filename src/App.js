@@ -7,6 +7,19 @@ function App() {
   // let title = 'Wall-E';
   const [title, setTitile] = useState('Wall-E');
 
+  const movies = [
+
+    {title: "Wall-E"},
+
+    {title: "Pulp Fiction"},
+
+    {title: "Matrix"},
+
+    {title: "1670"},
+    {title: "New movie"},
+
+];
+
   let msg = "" 
 
     if (title.length<5)
@@ -39,6 +52,11 @@ function App() {
       <h2>My favourite movies for today is {title}</h2>
       {title.length > 0 && <div>{msg}</div>}
       <div>
+        <h3>Titles</h3>
+          <ul>
+            {movies.map((movie) => <li key={movie.title}>{movie.title}</li>)}
+          </ul>
+        
         <input type="text" value={title} onChange={handleChange}/> 
         {/* <button type="button" onClick={handleClick}>Pokaz tytul filmy</button>  */}
         <button type="button" onClick={() => alert(title) }>Pokaz tytul filmy</button>
