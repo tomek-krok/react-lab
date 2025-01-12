@@ -47,10 +47,11 @@ function App() {
     alert(title);
   }
 
-  // function handleAddMovie(event)
-  // {
-  //   setMovies([...movies, newMovie]);
-  // }
+  function handleAddMovie(event)
+  {
+    const newMovie = {title: title};
+    setMovies([...movies, newMovie]);
+  }
 
 
   return (
@@ -67,7 +68,11 @@ function App() {
         <input type="text" value={title} onChange={handleChange}/> 
         {/* <button type="button" onClick={handleClick}>Pokaz tytul filmy</button>  */}
         <button type="button" onClick={() => alert(title) }>Pokaz tytul filmy</button>
-        <button type="button" onClick={() => setMovies([...movies, {title:title}])}>Add movie</button>
+
+        {/* Arrow function solution 1 */}
+        {/* <button type="button" onClick={() => setMovies([...movies, {title:title}])}>Add movie</button> */}
+        {/* Explicit function solution 2 */}
+        <button type = "button" onClick={handleAddMovie} >Add movie</button>
       {/* </div> */}
     </div>
   );
