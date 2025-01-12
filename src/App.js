@@ -7,18 +7,20 @@ function App() {
   // let title = 'Wall-E';
   const [title, setTitile] = useState('Wall-E');
 
-  const movies = [
+  const [movies, setMovies] = useState([]);
 
-    {title: "Wall-E"},
+  // const movies = [
 
-    {title: "Pulp Fiction"},
+  //   {title: "Wall-E"},
 
-    {title: "Matrix"},
+  //   {title: "Pulp Fiction"},
 
-    {title: "1670"},
-    {title: "New movie"},
+  //   {title: "Matrix"},
 
-];
+  //   {title: "1670"},
+  //   {title: "New movie"},
+
+  // ];
 
   let msg = "" 
 
@@ -45,13 +47,18 @@ function App() {
     alert(title);
   }
 
+  // function handleAddMovie(event)
+  // {
+  //   setMovies([...movies, newMovie]);
+  // }
+
 
   return (
     <div>
       <h1>My favourite movies to watch</h1>
       <h2>My favourite movies for today is {title}</h2>
       {title.length > 0 && <div>{msg}</div>}
-      <div>
+      {/* <div> */}
         <h3>Titles</h3>
           <ul>
             {movies.map((movie) => <li key={movie.title}>{movie.title}</li>)}
@@ -60,7 +67,8 @@ function App() {
         <input type="text" value={title} onChange={handleChange}/> 
         {/* <button type="button" onClick={handleClick}>Pokaz tytul filmy</button>  */}
         <button type="button" onClick={() => alert(title) }>Pokaz tytul filmy</button>
-      </div>
+        <button type="button" onClick={() => setMovies([...movies, {title:title}])}>Add movie</button>
+      {/* </div> */}
     </div>
   );
 }
