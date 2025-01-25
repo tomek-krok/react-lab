@@ -12,6 +12,7 @@ export default function MovieForm(props) {
         }
 
         props.onMovieSubmit({title, year});
+        
         setTitle('');
         setYear('');
 

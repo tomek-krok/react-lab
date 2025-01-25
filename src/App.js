@@ -3,7 +3,8 @@ import {useState} from "react";
 import "milligram";
 
 import MovieForm from './MovieForm';
-import Test from './test';
+import MoviesList from './MoviesList';
+// import Test from './test';
 
 function App() {
 
@@ -12,12 +13,15 @@ function App() {
     return (
         <div className="container">
             <h1>My favourite movies to watch</h1>
-            <h2>Titles</h2>
-            <ul>
-                {movies.map(movie => <li key={movie.title}>{movie.title} ({movie.year})</li>)}
-            </ul>
-            <MovieForm onMovieSubmit={(movie) => setMovies([...movies, movie])}/>
-            <Test>wrwerwer</Test>
+
+            <MoviesList movies={movies}/>
+
+            <div>
+                <MovieForm onMovieSubmit={(movie) => setMovies([...movies, movie])} buttonLabel = "Add a moviex"/>
+                {/* <MovieForm onMovieSubmit={(movie) => setMovies([...movies, movie])} buttonLabel = "Search for a movie"/> */}
+                {/* <Test>wrwerwer</Test> */}
+            </div>
+            
         </div>
     );
 }
